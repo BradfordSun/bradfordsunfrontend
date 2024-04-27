@@ -1,0 +1,35 @@
+{
+    "header": {
+        "title": "MeiQiu's Home",
+        "search":"search",
+        "register":"register",
+        "signin":"signin",
+        "profile": "profile",
+        "signout": "signout"
+    },
+    "leftNav": {
+        "title": "Common Apps",
+        "foreignaffairstool":"Foreign Affairs Tool"
+    },
+    "rightNavHome": {
+        "title": "User Guide",
+        "text1":"1. The top search bar on the page can be used to search for any tools or blogs.",
+        "text2":"2. On the left side of the page, you can click to directly access commonly used apps."
+    },
+    "notFound": {
+        "title": "Page not found",
+        "text":"The address may be incorrect or outdated. Check the link, and try again."
+    },
+    "homePage": {
+        "breadcrumb":"Home",
+        "appname1": "Living Room",
+        "appdescription1": "DigDigDig, NibbleNibbleNibble...",
+        "appexample1": "Work Apps: Foreign Affairs Tool, LLM App...",
+        "appname2": "Bedroom",
+        "appdescription2": "Bubble Tea manufacturing factory",
+        "appexample2": "Life Apps: Album, World Clock...",
+        "appname3": "Dining Room",
+        "appdescription3": "Whoever eats leftover grass is the pig",
+        "appexample3": "Blog Articles: Technical Learning, Essay..."
+    }
+}

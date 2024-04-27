@@ -1,0 +1,35 @@
+{
+    "header": {
+        "title": "煤球儿小窝",
+        "search":"搜索",
+        "register":"注册",
+        "signin":"登陆",
+        "profile": "个人主页",
+        "signout": "注销"
+    },
+    "leftNav": {
+        "title": "常用应用",
+        "foreignaffairstool":"外事工具"
+    },
+    "rightNavHome": {
+        "title": "操作指南",
+        "text1":"1. 页面顶部搜索栏可以搜索任何工具,博客",
+        "text2":"2. 页面左侧可点击直接访问常用工具"
+    },
+    "notFound": {
+        "title": "无法找到页面",
+        "text":"地址可能不正确或已过时。请检查链接，然后重试。"
+    },
+    "homePage": {
+        "breadcrumb":"家",
+        "appname1": "客厅",
+        "appdescription1": "刨刨刨, 啃啃啃",
+        "appexample1": "工作应用: 外事统计, 大模型应用...",
+        "appname2": "卧室",
+        "appdescription2": "珍珠奶茶制造厂",
+        "appexample2": "生活应用: 相册, 世界时钟...",
+        "appname3": "餐厅",
+        "appdescription3": "谁吃剩草谁是猪",
+        "appexample3": "博客文章: 技术学习, 随笔..."
+    }
+}

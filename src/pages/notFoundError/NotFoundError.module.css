@@ -1,0 +1,30 @@
+.centered-top-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 使用视口的高度作为容器的高度 */
+  }
+  
+  .centered-top-image {
+    position: absolute;
+    top: 10%; /* 根据需要调整图片距离顶部的偏移量 */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .centered-title {
+    position: absolute;
+    top: 25%; /* 根据需要调整标题距离顶部的偏移量 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 200px;
+  }
+
+  .centered-text {
+    position: absolute;
+    top: 33%; /* 根据需要调整文字距离顶部的偏移量 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 200px;
+  }
