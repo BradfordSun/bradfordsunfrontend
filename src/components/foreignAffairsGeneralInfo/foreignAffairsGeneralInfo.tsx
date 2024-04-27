@@ -1,41 +1,49 @@
-import * as React from "react";
 import {
   Box,
   ColumnLayout,
   Container,
   Header,
-  StatusIndicator,
 } from "@cloudscape-design/components";
 
-export function ForeignAffairsGeneralInfo() {
+import { useTranslation } from "react-i18next";
+
+export function ForeignAffairsGeneralInfo({
+  passportupdate,
+  workupdate,
+  basicupdate,
+  baseupdate,
+}) {
+  const { t } = useTranslation();
   return (
     <div>
-      <Container header={<Header variant="h2">一般信息</Header>}>
+      <Container
+        header={<Header variant="h2">{t("foreignAffairs.generalinfo")}</Header>}
+      >
         <ColumnLayout columns={5} variant="text-grid">
           <div>
-            <Box variant="awsui-key-label">工具版本</Box>
-            <div>v1.0 2024-04-20T21:18:32</div>
+            <Box variant="awsui-key-label">
+              {t("foreignAffairs.toolversion")}
+            </Box>
+            <div>v1.0.0 2024-04-27</div>
           </div>
           <div>
-            <Box variant="awsui-key-label">国际公司因公护照信息</Box>
-            <div></div>
+            <Box variant="awsui-key-label">
+              {t("foreignAffairs.passportinfo")}
+            </Box>
+            <div>{passportupdate.replace("T", " ")}</div>
           </div>
           <div>
-            <Box variant="awsui-key-label">国际公司外事工作台账</Box>
-            <div></div>
+            <Box variant="awsui-key-label">{t("foreignAffairs.workinfo")}</Box>
+            <div>{workupdate.replace("T", " ")}</div>
           </div>
           <div>
-            <Box variant="awsui-key-label">基础信息维护</Box>
-            <div></div>
+            <Box variant="awsui-key-label">{t("foreignAffairs.basicinfo")}</Box>
+            <div>{basicupdate.replace("T", " ")}</div>
           </div>
           <div>
-            <Box variant="awsui-key-label">常驻</Box>
-            <div></div>
+            <Box variant="awsui-key-label">{t("foreignAffairs.baseinfo")}</Box>
+            <div>{baseupdate.replace("T", " ")}</div>
           </div>
-          {/* <div>
-        <Box variant="awsui-key-label">Pending maintenance</Box>
-        <div>None</div>
-      </div> */}
         </ColumnLayout>
       </Container>
     </div>

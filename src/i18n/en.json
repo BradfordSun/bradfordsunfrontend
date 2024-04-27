@@ -20,6 +20,10 @@
         "title": "Page not found",
         "text":"The address may be incorrect or outdated. Check the link, and try again."
     },
+    "serverError": {
+        "title": "Internal Server Error",
+        "text":"The server has encountered some issues, please contact the administrator."
+    },
     "homePage": {
         "breadcrumb":"Home",
         "appname1": "Living Room",
@@ -31,5 +35,22 @@
         "appname3": "Dining Room",
         "appdescription3": "Whoever eats leftover grass is the pig",
         "appexample3": "Blog Articles: Technical Learning, Essay..."
+    },
+    "foreignAffairs": {
+        "title": "Foreign Affairs Tool",
+        "generalinfo":"General Info",
+        "toolversion":"Tool Version",
+        "passportinfo":"Passport Info",
+        "workinfo":"Work Info",
+        "basicinfo":"Basic Info",
+        "baseinfo":"Base Info",
+        "updateexcel":"Update Excel",
+        "choosefile":"Choose File",
+        "uploadfile":"Upload File",
+        "inputname": "Name",
+        "choosedepartment": "Department",
+        "search":"Search",
+        "clear":"Clear",
+        "checkapproval":"Check Approval"
     }
 }

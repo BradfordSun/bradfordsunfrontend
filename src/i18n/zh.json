@@ -20,6 +20,10 @@
         "title": "无法找到页面",
         "text":"地址可能不正确或已过时。请检查链接，然后重试。"
     },
+    "serverError": {
+        "title": "系统异常",
+        "text":"服务器遇到了一些问题，请联系管理员。"
+    },
     "homePage": {
         "breadcrumb":"家",
         "appname1": "客厅",
@@ -31,5 +35,22 @@
         "appname3": "餐厅",
         "appdescription3": "谁吃剩草谁是猪",
         "appexample3": "博客文章: 技术学习, 随笔..."
+    },
+    "foreignAffairs": {
+        "title": "外事工具",
+        "generalinfo":"一般信息",
+        "toolversion":"工具版本",
+        "passportinfo":"国际公司因公护照信息",
+        "workinfo":"国际公司外事工作台账",
+        "basicinfo":"基础信息维护",
+        "baseinfo":"常驻",
+        "updateexcel":"更新内容",
+        "choosefile":"选择文件",
+        "uploadfile":"上传文件",
+        "inputname":"输入姓名",
+        "choosedepartment":"选择部门",
+        "search":"搜索",
+        "clear":"清空",
+        "checkapproval":"批件检查"
     }
 }

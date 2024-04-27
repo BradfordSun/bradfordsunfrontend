@@ -1,18 +1,23 @@
-import { Box, Container, Link, SpaceBetween } from '@cloudscape-design/components';
-import React from 'react';
+import {
+  Box,
+  Container,
+  Link,
+  SpaceBetween,
+} from "@cloudscape-design/components";
 
-export function HomeContainer ({imgsrc, imgalt, appname, appdescription, appexample}) {
-    return (
-        <Container
+export function HomeContainer({
+  imgsrc,
+  imgalt,
+  appname,
+  appdescription,
+  appexample,
+}) {
+  return (
+    <Container
       media={{
-        content: (
-          <img
-            src={imgsrc}
-            alt={imgalt}
-          />
-        ),
+        content: <img src={imgsrc} alt={imgalt} width="300" height="300" />,
         position: "side",
-        width: "33%"
+        width: "33%",
       }}
     >
       <SpaceBetween direction="vertical" size="s">
@@ -24,10 +29,8 @@ export function HomeContainer ({imgsrc, imgalt, appname, appdescription, appexam
           </Box>
           <Box variant="small">{appdescription}</Box>
         </SpaceBetween>
-        <Box variant="p">
-          {appexample}
-        </Box>
+        <Box variant="p">{appexample}</Box>
       </SpaceBetween>
     </Container>
-    )
+  );
 }

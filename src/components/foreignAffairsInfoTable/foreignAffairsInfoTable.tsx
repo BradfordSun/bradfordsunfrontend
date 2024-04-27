@@ -1,11 +1,5 @@
 import {
   Box,
-  Button,
-  Container,
-  FileUpload,
-  Input,
-  Pagination,
-  ProgressBar,
   SpaceBetween,
   Table,
   TextFilter,
@@ -13,6 +7,7 @@ import {
 import { Header as CloudScapeHeader } from "@cloudscape-design/components";
 import React from "react";
 
+// 定义Info table的格式
 interface Info {
   Country: string;
   ApprovalStart: string;
@@ -20,6 +15,7 @@ interface Info {
   ApproveNumber: string;
 }
 
+// 因为返回的是一个列表，需要的参数也是一个列表，需要把props定义成列表
 interface PropsType {
   info: Info[];
   loading: boolean;
