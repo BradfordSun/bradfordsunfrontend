@@ -1,0 +1,102 @@
+import React, { useState } from "react";
+import { Input, Button, Box } from "@cloudscape-design/components";
+import Icon from "@cloudscape-design/components/icon";
+
+type Message = {
+  sender: string;
+  texts: string[];
+};
+
+export function TestPage() {
+  const [inputText, setInputText] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  const handleInputChange = (event) => setInputText(event.detail.value);
+
+  const sendMessage = async () => {
+    const trimmed = inputText.trim();
+    if (!trimmed) return;
+
+    const userMessage = { sender: "You", texts: [trimmed] };
+    setMessages((messages) => [...messages, userMessage]);
+    setInputText("");
+
+    const responseMessage = { sender: "AI", texts: [] };
+    setMessages((messages) => [...messages, responseMessage]);
+
+    // 使用 fetch 替换 axios 发送流式响应请求
+    fetch("http://localhost:8000/stream-response/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ input_text: trimmed, max_tokens: 1000 }),
+    })
+      .then((response) => {
+        if (!response.body) throw new Error("Stream not available");
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        reader.read().then(function processText({ done, value }) {
+          if (done) return;
+          let text = decoder.decode(value, { stream: true });
+          // 更新最后一条消息，添加新的文本片段
+          setMessages((messages) =>
+            messages.map((m, i) =>
+              i === messages.length - 1
+                ? { ...m, texts: [...m.texts, text] }
+                : m
+            )
+          );
+          return reader.read().then(processText);
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setMessages((messages) => [
+          ...messages,
+          { sender: "AI", texts: ["Oops, something went wrong."] },
+        ]);
+      });
+  };
+
+  return (
+    <Box padding="m">
+      <div>
+        {messages.map((message, index) => (
+          <div key={index} style={{ margin: "1rem 0" }}>
+            <Icon
+              name={message.sender === "You" ? "group" : "multiscreen"}
+              size="normal"
+            />
+            <strong>{message.sender}</strong>
+            <Box
+              variant={message.sender === "You" ? "p" : "awsui-gen-ai-label"}
+              margin={{ bottom: "xxs" }}
+            >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <i
+                  className={`far ${
+                    message.sender === "You" ? "fa-user" : "fa-robot"
+                  }`}
+                  style={{ marginRight: "10px" }}
+                ></i>
+                {/* 显示消息中所有的文本片段 */}
+                <span>{message.texts.join("")}</span>
+              </div>
+            </Box>
+          </div>
+        ))}
+      </div>
+      <div>
+        <Input
+          value={inputText}
+          onChange={handleInputChange}
+          placeholder="Type your message..."
+        />
+        <Button onClick={sendMessage}>Send</Button>
+      </div>
+    </Box>
+  );
+}

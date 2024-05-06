@@ -1,0 +1,28 @@
+.empty-chat-image {
+    position: absolute;
+    top: 25%; /* 根据需要调整图片距离顶部的偏移量 */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.empty-chat-text {
+    position: absolute;
+    top: 80%; /* 根据需要调整图片距离顶部的偏移量 */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.flex-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+.slider-wrapper {
+    flex: 1;
+    max-inline-size: 800px;
+  }
+  
+.control-wrapper {
+    max-inline-size: 70px;
+  }

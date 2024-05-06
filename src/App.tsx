@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/foreignaffairs" element={<ForeignAffairs />} />
-          {/* <Route path="/testpage" element={<TestPage />} /> */}
+          <Route path="/testpage" element={<TestPage />} />
           <Route path="/error" element={<ServerError />} />
           <Route path="*" element={<NotFoundError />} />
         </Routes>
