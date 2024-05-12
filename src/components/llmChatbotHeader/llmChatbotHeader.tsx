@@ -1,10 +1,6 @@
 import {
   Box,
   Button,
-  ButtonDropdown,
-  Cards,
-  ColumnLayout,
-  Container,
   FormField,
   Header as CloudScapeHeader,
   Input,
@@ -34,12 +30,15 @@ export function LLMChatbotHeader({
   setSessionHistoryLoading,
   setShowEmptyChat,
   setIsHistoryChat,
+  setSelectedSession,
+  pendingReply,
 }) {
   const { t } = useTranslation();
   return (
     <CloudScapeHeader
       variant="h2"
       actions={
+        // 只有选择模型之后，才会出右边的推理参数的设置按钮
         chosenModel && (
           <Button
             iconName="settings"
@@ -50,6 +49,7 @@ export function LLMChatbotHeader({
       }
     >
       {chosenModel ? (
+        // 如果选了模型，就显示模型的图标，名字以及更改模型的按钮
         <SpaceBetween direction="horizontal" size="xs">
           <img
             src={model === "Claude 3 Sonnet" ? anthropic : meta}
@@ -61,16 +61,18 @@ export function LLMChatbotHeader({
           <Button
             variant="inline-link"
             onClick={() => setChooseModelVisible(true)}
+            disabled={pendingReply} // 等待llm回复时不能点新建会话，以免出现问题
           >
-            更改
+            {t("llmChatbot.changemodel")}
           </Button>
         </SpaceBetween>
       ) : (
+        // 如果没选模型，就显示选择模型的按钮
         <Button variant="primary" onClick={() => setChooseModelVisible(true)}>
-          选择模型
+          {t("llmChatbot.choosemodel")}
         </Button>
       )}
-
+      {/* 这个modal是点选择模型按钮后弹出的框 */}
       <Modal
         onDismiss={() => setChooseModelVisible(false)}
         visible={chooseModelVisible}
@@ -81,25 +83,27 @@ export function LLMChatbotHeader({
                 variant="link"
                 onClick={() => setChooseModelVisible(false)}
               >
-                取消
+                {t("llmChatbot.cancel")}
               </Button>
               <Button
                 variant="primary"
                 onClick={() => {
                   setModel(changeModel); // 保存选中的模型名
                   setChooseModelVisible(false); // 关闭模态框
-                  setChosenModel(true);
-                  setSessionHistoryLoading(true);
-                  setShowEmptyChat(true);
-                  setIsHistoryChat(false);
+                  setChosenModel(true); // 设置为已经选择完模型
+                  setSessionHistoryLoading(true); // 选完模型就开转圈，调page的useEffect开始读这个user在这个模型下的历史session了
+                  setShowEmptyChat(true); // 选完模型直接显示空页面
+                  setIsHistoryChat(false); // 所有回到空的操作都应该伴随着非历史记录，以免出现问题。这是因为点击发送消息后有一步会判断是否为空或者历史记录，是的话会重新加载历史session
+                  setSelectedSession(""); // 选模型后将之前选的session回复为默认值，以免仍判断sessionid=已选择的session导致某项显示蓝色
+                  setTemperatureValue(0.5); // 换模型得重新将温度设为默认值，其他的操作不需要
                 }}
               >
-                确定
+                {t("llmChatbot.apply")}
               </Button>
             </SpaceBetween>
           </Box>
         }
-        header="选择模型"
+        header={t("llmChatbot.choosemodel")}
       >
         <RadioGroup
           value={changeModel}
@@ -112,6 +116,7 @@ export function LLMChatbotHeader({
             {
               value: "Llama 3 70B Instruct",
               label: "Llama 3 70B Instruct",
+              disabled: true, // 暂时还不支持
             },
           ]}
         />
@@ -119,9 +124,10 @@ export function LLMChatbotHeader({
       <Modal
         onDismiss={() => setSettingVisible(false)}
         visible={settingVisible}
-        header="推理参数"
+        header={t("llmChatbot.inference")}
       >
-        <FormField label="温度">
+        <FormField label={t("llmChatbot.temperature")}>
+          {/* 这里要遵守下官方doc的说明，对css样式做设置。另外小数的话要设置step=0.1 */}
           <div className={styles["flex-wrapper"]}>
             <div className={styles["slider-wrapper"]}>
               <Slider
@@ -133,16 +139,16 @@ export function LLMChatbotHeader({
               />
             </div>
             <SpaceBetween size="m" alignItems="center" direction="horizontal">
-              <div className={styles["input-wrapper"]}>
+              <div className={styles["control-wrapper"]}>
                 <Input
                   type="number"
                   inputMode="numeric"
-                  value={temperatureValue.toString()}
+                  value={temperatureValue}
                   onChange={({ detail }) => {
                     setTemperatureValue(Number(detail.value));
                   }}
-                  readOnly
                   controlId="validation-input"
+                  readOnly //不是readonly的话会可以通过输入框乱改
                 />
               </div>
             </SpaceBetween>

@@ -9,7 +9,8 @@
     },
     "leftNav": {
         "title": "常用应用",
-        "foreignaffairstool":"外事工具"
+        "foreignaffairstool":"外事工具",
+        "llmchatbot":"大语言模型聊天机器人"
     },
     "rightNavHome": {
         "title": "操作指南",
@@ -52,5 +53,33 @@
         "search":"搜索",
         "clear":"清空",
         "checkapproval":"批件检查"
+    },
+    "llmChatbot": {
+        "title": "大语言模型聊天机器人",
+        "generalinfo":"一般信息",
+        "toolversion":"工具版本",
+        "changemodel":"更改",
+        "choosemodel":"选择模型",
+        "cancel":"取消",
+        "apply":"确定",
+        "delete":"删除",
+        "enter":"进入",
+        "rename":"重命名",
+        "inference":"推理参数",
+        "temperature":"温度",
+        "history":"历史记录",
+        "confirmdelete":"确认删除该纪录？",
+        "emptyhistory":"无历史记录",
+        "sessionfail":"读取历史失败",
+        "deletesuccess":"删除成功",
+        "deletefail":"删除失败",
+        "chathistoryfail":"读取对话失败",
+        "messagefail":"消息接收失败",
+        "inputplaceholder":"请输入您的问题...",
+        "send":"发送",
+        "emptychat":"请随时和我聊天吧",
+        "apikey":"密钥",
+        "systemprompt":"系统提示",
+        "systempromptplaceholder":"请输入系统提示..."
     }
 }

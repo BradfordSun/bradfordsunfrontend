@@ -225,6 +225,7 @@ export function ForeignAffairs() {
           />
         }
         navigationOpen={false}
+        navigationHide={true}
         navigation={<LeftNav />}
         toolsOpen={false}
         tools={

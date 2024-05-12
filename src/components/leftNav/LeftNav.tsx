@@ -15,6 +15,11 @@ export function LeftNav() {
           text: t("leftNav.foreignaffairstool"),
           href: `foreignaffairs`,
         },
+        {
+          type: "link",
+          text: t("leftNav.llmchatbot"),
+          href: `llmchatbot`,
+        },
       ]}
     />
   );

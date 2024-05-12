@@ -9,7 +9,8 @@
     },
     "leftNav": {
         "title": "Common Apps",
-        "foreignaffairstool":"Foreign Affairs Tool"
+        "foreignaffairstool":"Foreign Affairs Tool",
+        "llmchatbot":"LLM Chatbot"
     },
     "rightNavHome": {
         "title": "User Guide",
@@ -52,5 +53,33 @@
         "search":"Search",
         "clear":"Clear",
         "checkapproval":"Check Approval"
+    },
+    "llmChatbot": {
+        "title": "LLM Chatbot",
+        "generalinfo":"General Info",
+        "toolversion":"Tool Version",
+        "changemodel":"change",
+        "choosemodel":"Choose Model",
+        "cancel":"Cancel",
+        "apply":"Apply",
+        "delete":"Delete",
+        "enter":"Enter",
+        "rename":"Rename",
+        "inference":"Inference Parameter",
+        "temperature":"Temperature",
+        "history":"History",
+        "confirmdelete":"Confirm deletion?",
+        "emptyhistory":"No history available",
+        "sessionfail":"Failed to load session history",
+        "deletesuccess":"Deleted successfully",
+        "deletefail":"Failed to delete",
+        "chathistoryfail":"Failed to load chat history",
+        "messagefail":"Failed to receive message",
+        "inputplaceholder":"Please enter your question...",
+        "send":"Send",
+        "emptychat":"How can I help you today?",
+        "apikey":"API Key",
+        "systemprompt":"System Prompt",
+        "systempromptplaceholder":"Please enter the system prompt..."
     }
 }

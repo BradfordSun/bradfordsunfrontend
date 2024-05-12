@@ -3,6 +3,7 @@ import {
   HomePage,
   NotFoundError,
   ForeignAffairs,
+  LLMChatbot,
   ServerError,
   TestPage,
 } from "./pages";
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/foreignaffairs" element={<ForeignAffairs />} />
+          <Route path="/llmchatbot" element={<LLMChatbot />} />
           <Route path="/testpage" element={<TestPage />} />
           <Route path="/error" element={<ServerError />} />
           <Route path="*" element={<NotFoundError />} />
