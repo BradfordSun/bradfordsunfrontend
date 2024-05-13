@@ -83,7 +83,7 @@ export function LLMChatbot() {
     if (sessionHistoryLoading) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(`/api/sessions`, {
+          const { data } = await axios.get(`/llmchatbotapi/sessions`, {
             params: {
               user: user,
               model: model,
@@ -117,7 +117,7 @@ export function LLMChatbot() {
     if (deleteSessionConfirmation) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.delete(`/api/sessions`, {
+          const { data } = await axios.delete(`/llmchatbotapi/sessions`, {
             params: {
               session_id: deleteSession,
             },
@@ -173,7 +173,7 @@ export function LLMChatbot() {
       setShowEmptyChat(false);
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(`/api/chathistory`, {
+          const { data } = await axios.get(`/llmchatbotapi/chathistory`, {
             params: {
               session_id: sessionID,
             },
@@ -262,7 +262,7 @@ export function LLMChatbot() {
     setMessages((messages) => [...messages, responseMessage]);
 
     // 使用 fetch 替换 axios 发送流式响应请求
-    fetch("/api/stream-response/", {
+    fetch("/llmchatbotapi/stream-response", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -315,6 +315,7 @@ export function LLMChatbot() {
                 : m
             )
           );
+
           return reader.read().then(processText);
         });
       })

@@ -102,7 +102,7 @@ export function ForeignAffairs() {
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
-        const { data } = await axios.get("/api/fileupdate");
+        const { data } = await axios.get("/foreignaffairsapi/fileupdate");
         setFileUpdate({
           passportupdate: data.passportupdate,
           workupdate: data.workupdate,
@@ -128,7 +128,7 @@ export function ForeignAffairs() {
     if (expireloading) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(`/api/expire`);
+          const { data } = await axios.get(`/foreignaffairsapi/expire`);
           setExpireTable(data.expire);
           setExpireLoading(false);
           setEmptyExpireTable(data.expire.length <= 0);
@@ -147,7 +147,7 @@ export function ForeignAffairs() {
     if (passportloading) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(`/api/personal`, {
+          const { data } = await axios.get(`/foreignaffairsapi/personal`, {
             params: { name: searchParams.nameValue },
           });
           setPassportTable(data.passport);
@@ -168,7 +168,7 @@ export function ForeignAffairs() {
     if (infoloading) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(`/api/personal`, {
+          const { data } = await axios.get(`/foreignaffairsapi/personal`, {
             params: { name: searchParams.nameValue },
           });
           setInfoTable(data.info);
@@ -189,7 +189,7 @@ export function ForeignAffairs() {
     if (departmentloading) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(`/api/department`, {
+          const { data } = await axios.get(`/foreignaffairsapi/department`, {
             params: {
               department: searchParams.selectedDepartmentOption?.value,
             },

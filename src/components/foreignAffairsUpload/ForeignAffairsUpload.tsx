@@ -62,7 +62,7 @@ export function ForeignAffairsUpload({ onUploadSuccess }) {
     setShowProgressBar(true); // 显示进度条
     const formData = new FormData();
     formData.append("file", file); // 确保后端接收时的字段名与此处一致
-    const eventSource = new EventSource("/api/events");
+    const eventSource = new EventSource("/foreignaffairsapi/events");
     eventSource.onmessage = function (event) {
       const data = JSON.parse(event.data);
       // 实时显示上传进度，其他信息。完毕或有问题后展示状态和结果文字
@@ -82,7 +82,7 @@ export function ForeignAffairsUpload({ onUploadSuccess }) {
         },
       });
       // 假设上传成功后，再次获取最新时间信息
-      const { data } = await axios.get("/api/fileupdate");
+      const { data } = await axios.get("/foreignaffairsapi/fileupdate");
       onUploadSuccess({
         passportupdate: data.passportupdate,
         workupdate: data.workupdate,
