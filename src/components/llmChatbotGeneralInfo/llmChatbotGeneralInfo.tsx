@@ -17,7 +17,7 @@ export function LLMChatbotGeneralInfo() {
         <ColumnLayout columns={5} variant="text-grid">
           <div>
             <Box variant="awsui-key-label">{t("llmChatbot.toolversion")}</Box>
-            <div>v1.0.0 2024-04-27</div>
+            <div>v1.0.2 2024-05-13</div>
           </div>
           <div>
             <Box variant="awsui-key-label">Claude 3</Box>

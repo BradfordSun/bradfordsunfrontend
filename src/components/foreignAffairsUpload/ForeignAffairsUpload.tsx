@@ -76,7 +76,7 @@ export function ForeignAffairsUpload({ onUploadSuccess }) {
       }
     };
     try {
-      await axios.post("/api/upload", formData, {
+      await axios.post("/foreignaffairsapi/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
